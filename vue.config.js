@@ -1,3 +1,1 @@
-module.exports = {
-  publicPath: "/deivimaci.github.io/",
-};
+module.exports = {};
