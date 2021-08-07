@@ -35,7 +35,7 @@ export default {
           console.table(response.data.results);
           // assigning fetched data to a variable
           this.basicPokemonInfo = response.data.results;
-          // mapping through url property and fetching advanced pokemon info
+          // mapping through basic pokemon info and fetching advanced pokemon info
           const promises = this.basicPokemonInfo.map((res) => {
             return axios.get(res.url);
           });
