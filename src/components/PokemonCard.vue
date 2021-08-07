@@ -1,8 +1,9 @@
 <template>
-  <div class="card">
+  <div class="card" @click="setFavourite(name)">
     <img class="image" :src="imageSrc" />
     <h2 class="name">{{ name }}</h2>
-    <!-- <svg
+    <svg
+      v-if="favourite === name"
       viewBox="0 0 300 275"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
@@ -13,14 +14,19 @@
         stroke-width="20"
         points="150,25 179,111 269,111 197,165  223,251 150,200 77,251 103,165 31,111 121,111"
       />
-    </svg> -->
+    </svg>
   </div>
 </template>
 
 <script>
 export default {
   name: "PokemonCard",
-  props: ["name", "imageSrc"],
+  props: {
+    name: String,
+    imageSrc: String,
+    favourite: String,
+    setFavourite: Function,
+  },
 };
 </script>
 
@@ -32,6 +38,7 @@ export default {
   background-color: #fff;
   border-radius: 7px;
   box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+  cursor: pointer;
 }
 
 .image {
