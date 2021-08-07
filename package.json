@@ -9,6 +9,7 @@
     "deploy": "node scripts/deploy-2-gh-pages.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.12.1",
     "vue": "^2.6.12"
   },
