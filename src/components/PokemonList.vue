@@ -5,6 +5,8 @@
       :key="i"
       :name="pokemon.data.name"
       :imageSrc="pokemon.data.sprites.front_default"
+      :setFavourite="setFavouritePokemon"
+      :favourite="favourite"
     />
   </div>
 </template>
@@ -19,12 +21,13 @@ export default {
     return {
       basicPokemonInfo: [],
       advancedPokemonInfo: [],
+      favourite: "",
     };
   },
   methods: {
+    // fetching pokemon data
     getPokemonData() {
       const url = "https://pokeapi.co/api/v2/pokemon?limit=10";
-      // fetching pokemon data
       axios
         .get(url)
         .then((response) => {
@@ -43,6 +46,10 @@ export default {
         })
         // catching if error occurs
         .catch((e) => console.log(e));
+    },
+    // Set favourite pokemon
+    setFavouritePokemon(name) {
+      this.favourite !== name ? (this.favourite = name) : (this.favourite = "");
     },
   },
   created() {
