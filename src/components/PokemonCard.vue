@@ -25,7 +25,11 @@ export default {
     name: String,
     imageSrc: String,
     favourite: String,
-    setFavourite: Function,
+  },
+  methods: {
+    setFavourite(name) {
+      this.$emit("setFavourite", name);
+    },
   },
 };
 </script>

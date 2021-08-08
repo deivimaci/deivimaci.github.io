@@ -5,15 +5,15 @@
       :key="i"
       :name="pokemon.data.name"
       :imageSrc="pokemon.data.sprites.front_default"
-      :setFavourite="setFavouritePokemon"
       :favourite="favourite"
+      @setFavourite="handleFavourite"
     />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import PokemonCard from "./PokemonCard.vue";
+import PokemonCard from "@/components/PokemonCard.vue";
 
 export default {
   components: { PokemonCard },
@@ -48,7 +48,7 @@ export default {
         .catch((e) => console.log(e));
     },
     // Set favourite pokemon
-    setFavouritePokemon(name) {
+    handleFavourite(name) {
       this.favourite = this.favourite !== name ? name : "";
     },
   },
