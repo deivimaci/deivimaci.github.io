@@ -31,10 +31,10 @@ export default {
       axios
         .get(url)
         .then((response) => {
-          // logging 10 pokemons
-          console.table(response.data.results);
           // assigning fetched data to a variable
           this.basicPokemonInfo = response.data.results;
+          // logging 10 pokemons
+          console.table(response.data.results);
           // mapping through basic pokemon info and fetching advanced pokemon info
           const promises = this.basicPokemonInfo.map((res) => {
             return axios.get(res.url);
@@ -49,7 +49,7 @@ export default {
     },
     // Set favourite pokemon
     setFavouritePokemon(name) {
-      this.favourite !== name ? (this.favourite = name) : (this.favourite = "");
+      this.favourite = this.favourite !== name ? name : "";
     },
   },
   created() {
